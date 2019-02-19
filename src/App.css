@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.container {
+  max-width: 578px;
+}
+
+.good-weather-day {
+  background: yellow;
+}
