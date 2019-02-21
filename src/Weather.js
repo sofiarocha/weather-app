@@ -1,53 +1,37 @@
 import React, { Component } from "react";
 import SearchForm from "./SearchForm";
 import CurrentLocation from "./CurrentLocation";
+import DateUtility from "./DateUtility";
+import ApiUtility from "./ApiUtility";
+import WeatherIcon from "./WeatherIcon";
 
 class Weather extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      city: ""
+      city: this.props.city
     };
   }
 
-  formatDate = date => {
-    const days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thrusday",
-      "Friday",
-      "Sunday"
-    ];
-
-    let minutes = date.getMinutes();
-    if (minutes < 10) {
-      minutes = `0${minutes}`;
+  componentDidMount = () => {
+    if (this.state.city) {
+      this.refreshResults(`q=${this.state.city}`);
     }
-    let hours = date.getHours();
-    if (hours < 10) {
-      hours = `0${hours}`;
-    }
-
-    return `${days[date.getDay()]}, ${hours}:${minutes}`;
   };
 
   refreshResults = location => {
-    const apiKey = "9d92245d08bdc72ed4ac970627d76d46";
-    const rootUrl = "https://api.openweathermap.org/data/2.5/weather";
-    let url = `${rootUrl}?appid=${apiKey}&units=metric&${location}`;
+    let url = `${ApiUtility.rootUrl}?appid=${
+      ApiUtility.apiKey
+    }&units=metric&${location}`;
     const axios = require("axios");
-    console.log(url);
     axios.get(url).then(response => {
+      let date = new Date(response.data.dt * 1000);
       this.setState({
         city: response.data.name,
         weather: {
-          date: this.formatDate(new Date(response.data.dt * 1000)),
-          icon: `http://openweathermap.org/img/w/${
-            response.data.weather[0].icon
-          }.png`,
+          date: new DateUtility(date).formatedDate(),
+          icon: response.data.weather[0].icon,
           temperature: Math.round(response.data.main.temp),
           description: response.data.weather[0].description,
           wind: Math.round(response.data.wind.speed),
@@ -67,9 +51,9 @@ class Weather extends Component {
         </div>
         <div className="row">
           <div className="col-sm-2 align-self-center pr-5">
-            <img
-              src={this.state.weather.icon}
-              alt={this.state.weather.description}
+            <WeatherIcon
+              code={this.state.weather.icon}
+              description={this.state.weather.description}
             />
           </div>
           <div className="col-sm-5 align-self-center">

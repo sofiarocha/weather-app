@@ -1,11 +1,8 @@
-.App {
-  text-align: center;
-}
-
 .container {
   max-width: 578px;
+  margin-top: 50px;
 }
 
-.good-weather-day {
-  background: yellow;
+.Navigation {
+  font-size: 12px;
 }

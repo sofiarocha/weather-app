@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Weather from "./Weather";
+import Navigation from "./Navigation";
+import Routes from "./Routes";
 import "./App.css";
 
 class App extends Component {
@@ -7,12 +8,13 @@ class App extends Component {
     return (
       <div className="container">
         <p>
-          My first app
           <span role="img" aria-label="">
-            👩‍💻
+            🌍🌎🌏
           </span>
+          Around the World Weather:
         </p>
-        <Weather />
+        <Navigation />
+        <Routes />
       </div>
     );
   }
