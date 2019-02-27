@@ -7,7 +7,7 @@ class Navigation extends Component {
       <div className="Navigation">
         <Link to="/lisbon">Lisbon</Link> | <Link to="/nairobi">Nairobi</Link> |{" "}
         <Link to="/kyoto">Kyoto</Link> | <Link to="/melbourne">Melbourne</Link>{" "}
-        | <Link to="/la-paz">La Paz</Link> | <Link to="/">🏠</Link>
+        | <Link to="/la-paz">La Paz</Link>
       </div>
     );
   }

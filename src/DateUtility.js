@@ -9,12 +9,16 @@ export default class DateUtility {
       "Monday",
       "Tuesday",
       "Wednesday",
-      "Thrusday",
+      "Thursday",
       "Friday",
-      "Sunday"
+      "Saturday"
     ];
 
     return days[this.date.getDay()];
+  }
+
+  shortDays() {
+    return this.days().substring(0, 3);
   }
 
   hours() {
