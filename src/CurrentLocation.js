@@ -11,7 +11,7 @@ class CurrentLocation extends Component {
 
   render() {
     return (
-      <div>
+      <div className="CurrentLocation">
         <button
           className="btn btn-secondary btn-sm"
           onClick={this.handleCurrentLocation}

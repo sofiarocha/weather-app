@@ -22,7 +22,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div className="SearchForm">
         <form onSubmit={event => this.handleSubmit(event)}>
           <div className="form-row">
             <div className="col-sm-10">
