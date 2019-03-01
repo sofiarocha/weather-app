@@ -54,7 +54,7 @@ class Weather extends Component {
           <h3>{this.state.weather.date}</h3>
         </div>
         <div className="row">
-          <WeatherIcon code={this.state.weather.icon} />
+          <WeatherIcon code={this.state.weather.icon} size={0.8} />
           <div className="col-sm-4 align-self-center">
             <p>{this.state.weather.temperature}ºC</p>
             <br />

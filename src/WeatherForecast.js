@@ -44,7 +44,7 @@ class WeatherForecast extends Component {
             return (
               <div className="col-sm-3 text-center" key={index}>
                 {weatherDetails.date} <br />{" "}
-                <WeatherIcon code={weatherDetails.icon} /> <br />{" "}
+                <WeatherIcon code={weatherDetails.icon} size={0.4} /> <br />{" "}
                 {weatherDetails.temperature}ºC
               </div>
             );

@@ -9,24 +9,24 @@ import {
 
 class WeatherIcon extends Component {
   iconMatching = {
-    "01d": <Sunny />,
-    "01n": <Sunny />,
-    "02d": <Cloudy patchy />,
-    "02n": <Cloudy patchy />,
-    "03d": <Cloudy />,
-    "03n": <Cloudy />,
-    "04d": <Cloudy />,
-    "04n": <Cloudy />,
-    "09d": <Rain />,
-    "09n": <Rain />,
-    "10d": <Rain patchy />,
-    "10n": <Rain patchy />,
-    "11d": <Rain lighting />,
-    "11n": <Rain lighting />,
-    "13d": <Snow />,
-    "13n": <Snow />,
-    "50d": <Cloudy />,
-    "50n": <Cloudy />
+    "01d": <Sunny size={this.props.size} />,
+    "01n": <Sunny size={this.props.size} />,
+    "02d": <Cloudy patchy size={this.props.size} />,
+    "02n": <Cloudy patchy size={this.props.size} />,
+    "03d": <Cloudy size={this.props.size} />,
+    "03n": <Cloudy size={this.props.size} />,
+    "04d": <Cloudy size={this.props.size} />,
+    "04n": <Cloudy size={this.props.size} />,
+    "09d": <Rain size={this.props.size} />,
+    "09n": <Rain size={this.props.size} />,
+    "10d": <Rain patchy size={this.props.size} />,
+    "10n": <Rain patchy size={this.props.size} />,
+    "11d": <Rain lighting size={this.props.size} />,
+    "11n": <Rain lighting size={this.props.size} />,
+    "13d": <Snow size={this.props.size} />,
+    "13n": <Snow size={this.props.size} />,
+    "50d": <Cloudy size={this.props.size} />,
+    "50n": <Cloudy size={this.props.size} />
   };
 
   theme = {
