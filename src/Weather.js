@@ -37,7 +37,8 @@ class Weather extends Component {
             description: response.data.weather[0].description,
             wind: Math.round(response.data.wind.speed),
             humidity: response.data.main.humidity,
-            clouds: Math.round(response.data.clouds.all)
+            clouds: Math.round(response.data.clouds.all),
+            location
           }
         });
       })
@@ -47,6 +48,7 @@ class Weather extends Component {
   };
 
   showResults = () => {
+    console.log(this.state.weather.location);
     return (
       <div>
         <div>
@@ -66,7 +68,7 @@ class Weather extends Component {
             <p>Clouds: {this.state.weather.clouds} %</p>
           </div>
         </div>
-        <WeatherForecast city={this.state.city} />
+        <WeatherForecast location={this.state.weather.location} />
       </div>
     );
   };

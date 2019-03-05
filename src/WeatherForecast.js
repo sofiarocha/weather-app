@@ -8,17 +8,32 @@ class WeatherForecast extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      forecast: null,
+      location: props.location
+    };
   }
 
   componentDidMount = () => {
     this.refreshForecast();
   };
 
+  componentWillReceiveProps = newProps => {
+    this.setState(
+      {
+        location: newProps.location
+      },
+      () => {
+        this.refreshForecast();
+      }
+    );
+  };
+
   refreshForecast = () => {
-    let url = `${Api.urlForecast}?appid=${Api.apiKey}&units=metric&q=${
-      this.props.city
+    let url = `${Api.urlForecast}?appid=${Api.apiKey}&units=metric&${
+      this.state.location
     }`;
+    console.log(url);
     axios.get(url).then(response => {
       let forecast = response.data.list;
       let dailyForecast = [7, 15, 23, 31].map(forecastIndex => {
