@@ -3,6 +3,7 @@ import axios from "axios";
 import WeatherIcon from "./WeatherIcon";
 import DateUtility from "./DateUtility";
 import Api from "./Api";
+import "./WeatherForecast.sass";
 
 class WeatherForecast extends Component {
   constructor(props) {
@@ -57,9 +58,9 @@ class WeatherForecast extends Component {
         <div className="row">
           {forecast.map((weatherDetails, index) => {
             return (
-              <div className="col-sm-3 text-center" key={index}>
+              <div className="col-sm-3 text-center forecast" key={index}>
                 {weatherDetails.date} <br />{" "}
-                <WeatherIcon code={weatherDetails.icon} size={0.4} /> <br />{" "}
+                <WeatherIcon code={weatherDetails.icon} size={0.3} /> <br />{" "}
                 {weatherDetails.temperature}ºC
               </div>
             );

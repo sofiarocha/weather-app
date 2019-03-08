@@ -6,6 +6,7 @@ import DateUtility from "./DateUtility";
 import Api from "./Api";
 import WeatherIcon from "./WeatherIcon";
 import WeatherForecast from "./WeatherForecast";
+import "./Weather.sass";
 
 class Weather extends Component {
   constructor(props) {
@@ -57,9 +58,8 @@ class Weather extends Component {
         </div>
         <div className="row">
           <WeatherIcon code={this.state.weather.icon} size={0.8} />
-          <div className="col-sm-4 align-self-center">
+          <div className="col-sm-4 align-self-center weather-conditions">
             <p className="degrees">{this.state.weather.temperature}ºC</p>
-            <br />
             <p>{this.state.weather.description}</p>
           </div>
           <div className="col-sm align-self-center">
